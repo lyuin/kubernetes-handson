@@ -190,7 +190,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 ### 最初にimageを作成
 
-main.goを作成。8080ポートでまちうけ、Hello, World!を返すプログラム。
+hello.goを作成。8080ポートでまちうけ、Hello, World!を返すプログラム。
 
 
 ```go:hello.go
@@ -243,11 +243,11 @@ images: ['asia.gcr.io/PROJECT_ID/my-project/hello-world:latest']
 次にGoogle Container Register(以下、GCR) にイメージを登録します。
 
 ```
-$ gcloud container builds submit --config=cloudbuild.yaml .
+$ gcloud builds submit --config=cloudbuild.yaml .
 ```
 
 https://console.cloud.google.com/gcr にアクセスして登録されたことを確認。
-`$ gcloud container builds list`でも確認できる。
+`$ gcloud builds list`でも確認できる。
 
 ### Podの作成
 
